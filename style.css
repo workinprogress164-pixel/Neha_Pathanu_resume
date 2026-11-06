@@ -1,0 +1,592 @@
+/* =========================================================
+   Resume website styles - Neha Pathanu
+   Theme: "Writer's desk", bold borders, offset shadows,
+          highlighter-pen accents on a paper background.
+   Fonts: Fraunces (headings), DM Sans (body), Caveat (handwriting)
+   ========================================================= */
+
+/* ---------- COLOUR PALETTE (CSS variables) ----------
+   Defined once here, reused everywhere with var(--name).
+   Change a colour here and the whole site updates. */
+:root {
+  --paper:     #fff8ec;   /* warm page background */
+  --ink:       #1f1a2e;   /* deep aubergine, used for text and borders */
+  --coral:     #f2542d;   /* main accent */
+  --highlight: #ffd84d;   /* highlighter yellow */
+  --mint:      #bfe8d6;
+  --lilac:     #d9ccff;
+}
+
+/* ---------- ELEMENT SELECTORS: base styles ---------- */
+* {
+  box-sizing: border-box;   /* padding and border stay inside the width */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;  /* smooth scrolling when nav links are clicked */
+  scroll-padding-top: 80px; /* stops the sticky nav covering section titles */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  background-color: var(--paper);
+  /* subtle dotted-notebook pattern, drawn with CSS only */
+  background-image: radial-gradient(rgba(31, 26, 46, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  line-height: 1.15;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- REUSABLE CLASSES ---------- */
+
+/* Highlighter-pen effect behind a word */
+.highlight {
+  background: linear-gradient(transparent 58%, var(--highlight) 58%);
+  padding: 0 4px;
+}
+
+/* Handwritten accent text */
+.handwritten {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: var(--coral);
+  line-height: 1;
+}
+
+/* Buttons: thick border + offset shadow */
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  margin: 6px 10px 6px 0;
+  background-color: var(--coral);
+  color: #fff;
+  font-weight: 700;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translate(3px, 3px);      /* button "presses" down */
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn-light {
+  background-color: #fff;
+  color: var(--ink);
+}
+
+/* ---------- ID SELECTOR + POSITIONING: sticky nav bar ---------- */
+#top-bar {
+  position: sticky;          /* sticks to the top while scrolling */
+  top: 0;
+  z-index: 100;              /* stays above everything else */
+  background-color: var(--paper);
+  border-bottom: 3px solid var(--ink);
+}
+
+/* Flexbox: logo on the left, links on the right */
+.navbar {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--coral);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  padding: 2px 4px;
+}
+
+.nav-links a:hover {
+  background-color: var(--highlight);
+}
+
+/* ---------- HERO ---------- */
+#home {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 80px 20px 70px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;   /* text wider than the card */
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin: 4px 0 10px;
+}
+
+.role {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  max-width: 520px;
+  margin-bottom: 22px;
+}
+
+/* Profile card on the right, slightly tilted */
+.hero-card {
+  background-color: var(--lilac);
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 30px 20px;
+  text-align: center;
+  transform: rotate(3deg);
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background-color: var(--coral);
+  color: #fff;
+  border: 3px solid var(--ink);
+  font-family: 'Fraunces', serif;
+  font-size: 3.4rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;               /* shrink-wraps the text */
+  background-color: var(--highlight);
+  border: 2px solid var(--ink);
+  border-radius: 30px;
+  padding: 4px 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.location {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* ---------- SCROLLING STRIP (marquee) ---------- */
+.marquee {
+  background-color: var(--ink);
+  color: var(--paper);
+  overflow: hidden;                    /* hides the part that's off-screen */
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  transform: rotate(-1deg);            /* playful slant */
+  margin: 10px 0 30px;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  padding: 14px 0;
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  white-space: nowrap;
+  animation: scroll-left 25s linear infinite;
+}
+
+.marquee-track span:nth-child(even) {
+  color: var(--highlight);             /* star separators */
+}
+
+/* The track holds the same words twice, so moving it left by half loops seamlessly */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- GENERAL SECTION LAYOUT ---------- */
+.section {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.section h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.sub-heading {
+  font-size: 1.5rem;
+  margin: 36px 0 14px;
+}
+
+/* ---------- STAT BOXES (CSS Grid) ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.stat {
+  padding: 22px;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform 0.2s;
+}
+
+.stat:hover {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+.stat-number {
+  font-family: 'Fraunces', serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat p:last-child {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.stat-coral  { background-color: #ff9d85; }
+.stat-yellow { background-color: var(--highlight); }
+.stat-mint   { background-color: var(--mint); }
+.stat-lilac  { background-color: var(--lilac); }
+
+/* ---------- TIMELINE (absolute positioning) ---------- */
+.timeline {
+  position: relative;                  /* anchor for the vertical line */
+  padding-left: 34px;
+}
+
+/* The vertical line, drawn with a pseudo-element */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--ink);
+}
+
+.timeline-item {
+  position: relative;
+  background-color: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+/* The dot on the line for each job */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 26px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--coral);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+}
+
+.timeline-item .date {
+  display: inline-block;
+  background-color: var(--highlight);
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  padding: 0 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.timeline-item h3 {
+  font-size: 1.4rem;
+}
+
+.company {
+  color: var(--coral);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.timeline-item li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 6px;
+}
+
+/* Custom bullet */
+.timeline-item li::before {
+  content: "\2726";                    /* star symbol */
+  position: absolute;
+  left: 0;
+  color: var(--coral);
+}
+
+/* ---------- EDUCATION TABLE ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 2px solid var(--ink);
+}
+
+th {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: 'Fraunces', serif;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fff3d6;
+}
+
+tbody tr:hover {
+  background-color: var(--mint);
+}
+
+/* ---------- CHIPS (inline-block pills) ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips li {
+  display: inline-block;
+  background-color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 30px;
+  padding: 6px 16px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.chips li:hover {
+  background-color: var(--highlight);
+  transform: rotate(-3deg);
+}
+
+/* ---------- AWARD CARDS ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.card {
+  background-color: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 22px;
+  transition: transform 0.25s;
+}
+
+/* Alternate tilt: odd cards lean left, even lean right */
+.card:nth-child(odd)  { transform: rotate(-1.5deg); }
+.card:nth-child(even) { transform: rotate(1.5deg); }
+
+.card:hover {
+  transform: rotate(0deg) translateY(-6px);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin: 4px 0 8px;
+}
+
+.card .year {
+  display: inline-block;
+  background-color: var(--coral);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0 12px;
+  border-radius: 20px;
+  border: 2px solid var(--ink);
+}
+
+.card .small {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* ---------- SKILLS: two columns ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.skill-box {
+  background-color: var(--mint);
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 22px;
+}
+
+.skill-box h3 {
+  margin-bottom: 14px;
+}
+
+.section p {
+  margin-bottom: 14px;
+  max-width: 760px;
+}
+
+/* ---------- CONTACT ---------- */
+.contact-box {
+  background-color: var(--highlight);
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.contact-box h2 {
+  margin-bottom: 14px;
+}
+
+.contact-box p {
+  margin: 0 auto 20px;
+}
+
+.contact-box .handwritten {
+  margin-bottom: 4px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 22px 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* ---------- RESPONSIVE: tablets and phones ---------- */
+@media (max-width: 850px) {
+  #home {
+    grid-template-columns: 1fr;        /* stack text and card */
+    padding-top: 50px;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .hero-card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .stat-grid,
+  .two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-grid,
+  .two-col,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section h2 {
+    font-size: 1.9rem;
+  }
+
+  /* Let the table scroll sideways instead of squashing */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* Respect people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
