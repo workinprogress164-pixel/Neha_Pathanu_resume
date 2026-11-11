@@ -26,7 +26,6 @@
 }
 
 html {
-  scroll-behavior: smooth;  /* smooth scrolling when nav links are clicked */
   scroll-padding-top: 80px; /* stops the sticky nav covering section titles */
 }
 
@@ -81,12 +80,6 @@ ul {
   border: 3px solid var(--ink);
   border-radius: 12px;
   box-shadow: 4px 4px 0 var(--ink);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn:hover {
-  transform: translate(3px, 3px);      /* button "presses" down */
-  box-shadow: 1px 1px 0 var(--ink);
 }
 
 .btn-light {
@@ -259,38 +252,6 @@ ul {
   font-size: 0.95rem;
 }
 
-/* ---------- SCROLLING STRIP (marquee) ---------- */
-.marquee {
-  background-color: var(--ink);
-  color: var(--paper);
-  overflow: hidden;                    /* hides the part that's off-screen */
-  border-top: 3px solid var(--ink);
-  border-bottom: 3px solid var(--ink);
-  transform: rotate(-1deg);            /* playful slant */
-  margin: 10px 0 30px;
-}
-
-.marquee-track {
-  display: flex;
-  gap: 28px;
-  width: max-content;
-  padding: 14px 0;
-  font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
-  white-space: nowrap;
-  animation: scroll-left 25s linear infinite;
-}
-
-.marquee-track span:nth-child(even) {
-  color: var(--highlight);             /* star separators */
-}
-
-/* The track holds the same words twice, so moving it left by half loops seamlessly */
-@keyframes scroll-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
 /* ---------- GENERAL SECTION LAYOUT ---------- */
 .section {
   max-width: 1050px;
@@ -321,11 +282,6 @@ ul {
   border: 3px solid var(--ink);
   border-radius: 18px;
   box-shadow: 6px 6px 0 var(--ink);
-  transition: transform 0.2s;
-}
-
-.stat:hover {
-  transform: translateY(-6px) rotate(-1deg);
 }
 
 .stat-number {
@@ -465,12 +421,6 @@ tbody tr:hover {
   padding: 6px 16px;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.chips li:hover {
-  background-color: var(--highlight);
-  transform: rotate(-3deg);
 }
 
 /* ---------- AWARD CARDS ---------- */
@@ -486,16 +436,11 @@ tbody tr:hover {
   border-radius: 18px;
   box-shadow: 6px 6px 0 var(--ink);
   padding: 22px;
-  transition: transform 0.25s;
 }
 
 /* Alternate tilt: odd cards lean left, even lean right */
 .card:nth-child(odd)  { transform: rotate(-1.5deg); }
 .card:nth-child(even) { transform: rotate(1.5deg); }
-
-.card:hover {
-  transform: rotate(0deg) translateY(-6px);
-}
 
 .card h3 {
   font-size: 1.25rem;
@@ -631,16 +576,5 @@ footer {
   table {
     display: block;
     overflow-x: auto;
-  }
-}
-
-/* Respect people who prefer less motion */
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-
-  html {
-    scroll-behavior: auto;
   }
 }
