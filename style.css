@@ -15,6 +15,7 @@
   --highlight: #ffd84d;   /* highlighter yellow */
   --mint:      #bfe8d6;
   --lilac:     #d9ccff;
+  --blue:      #286b92;
 }
 
 /* ---------- ELEMENT SELECTORS: base styles ---------- */
@@ -113,13 +114,62 @@ ul {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 12px;
   font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
   font-weight: 800;
 }
 
-.logo span {
+.logo-badge {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  transform: rotate(-7deg);
+}
+
+.logo-badge::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--ink);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+.logo-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-name {
+  color: var(--blue);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.logo-tagline {
+  margin-top: 3px;
   color: var(--coral);
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 .nav-links {
