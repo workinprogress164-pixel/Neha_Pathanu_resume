@@ -9,8 +9,13 @@
    Change a colour here and the whole site updates. */
 :root {
   --blue:   #0f766e;
+  --deep:   #0b4f4a;
+  --gold:   #e9b44c;
+  --mint:   #d9efe9;
+  --sand:   #fbefd5;
+  --blush:  #f8e1dc;
   --text:   #1f2937;
-  --muted:  #6b7280;
+  --muted:  #5f6b76;
   --light:  #e8f3f1;
   --border: #d5e4e1;
   --white:  #fffaf3;
@@ -87,8 +92,8 @@ ul {
   position: sticky;          /* sticks to the top while scrolling */
   top: 0;
   z-index: 100;              /* stays above everything else */
-  background-color: var(--white);
-  border-bottom: 3px solid var(--border);
+  background-color: var(--deep);
+  border-bottom: 0;
 }
 
 /* Flexbox: logo on the left, links on the right */
@@ -118,8 +123,8 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--gold);
+  color: var(--deep);
   border: 3px solid var(--border);
   box-shadow: 4px 4px 0 var(--border);
   font-family: 'Fraunces', serif;
@@ -135,7 +140,7 @@ ul {
   right: -7px;
   width: 12px;
   height: 12px;
-  background-color: var(--text);
+  background-color: var(--deep);
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
 }
@@ -147,14 +152,14 @@ ul {
 }
 
 .logo-name {
-  color: var(--blue);
+  color: var(--white);
   font-size: 1.35rem;
   font-weight: 800;
 }
 
 .logo-tagline {
   margin-top: 3px;
-  color: var(--blue);
+  color: #a9d6cf;
   font-family: 'Caveat', cursive;
   font-size: 1.15rem;
   font-weight: 600;
@@ -166,12 +171,13 @@ ul {
 }
 
 .nav-links a {
+  color: #d6ece8;
   font-weight: 500;
   padding: 2px 4px;
 }
 
 .nav-links a:hover {
-  background-color: var(--light);
+  color: var(--gold);
 }
 
 /* ---------- HERO ---------- */
@@ -186,6 +192,7 @@ ul {
 }
 
 .hero-text h1 {
+  color: var(--deep);
   font-size: 4.2rem;
   font-weight: 800;
   margin: 4px 0 10px;
@@ -207,8 +214,9 @@ ul {
 
 /* Profile card on the right, slightly tilted */
 .hero-card {
-  background-color: var(--light);
-  border: 3px solid var(--border);
+  color: var(--white);
+  background-color: var(--deep);
+  border: 0;
   border-radius: 24px;
   box-shadow: 8px 8px 0 var(--border);
   padding: 30px 20px;
@@ -221,8 +229,8 @@ ul {
   height: 150px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--gold);
+  color: var(--deep);
   border: 3px solid var(--border);
   font-family: 'Fraunces', serif;
   font-size: 3.4rem;
@@ -235,6 +243,7 @@ ul {
 .badge {
   display: inline-block;               /* shrink-wraps the text */
   background-color: var(--light);
+  color: var(--deep);
   border: 2px solid var(--border);
   border-radius: 30px;
   padding: 4px 16px;
@@ -245,6 +254,7 @@ ul {
 .location {
   margin-top: 10px;
   font-size: 0.95rem;
+  color: #a9d6cf;
 }
 
 /* ---------- GENERAL SECTION LAYOUT ---------- */
@@ -255,9 +265,21 @@ ul {
 }
 
 .section h2 {
+  position: relative;
+  color: var(--deep);
   font-size: 2.4rem;
   font-weight: 800;
   margin-bottom: 30px;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+  width: 50px;
+  height: 4px;
+  background-color: var(--gold);
 }
 
 .sub-heading {
@@ -292,10 +314,13 @@ ul {
   line-height: 1.4;
 }
 
-.stat-coral  { background-color: var(--light); }
-.stat-yellow { background-color: var(--light); }
-.stat-mint   { background-color: var(--light); }
-.stat-lilac  { background-color: var(--light); }
+.stat:nth-child(1) { background-color: var(--mint); }
+.stat:nth-child(2) { background-color: var(--sand); }
+.stat:nth-child(3) { background-color: var(--blush); }
+
+.stat:nth-child(1) .stat-number { color: var(--deep); }
+.stat:nth-child(2) .stat-number { color: #8a5a00; }
+.stat:nth-child(3) .stat-number { color: #9b3d2e; }
 
 /* ---------- TIMELINE (absolute positioning) ---------- */
 .timeline {
@@ -311,7 +336,7 @@ ul {
   top: 0;
   bottom: 0;
   width: 4px;
-  background-color: var(--text);
+  background-color: var(--blue);
 }
 
 .timeline-item {
@@ -322,6 +347,7 @@ ul {
   box-shadow: 5px 5px 0 var(--border);
   padding: 20px 24px;
   margin-bottom: 28px;
+  border-left: 4px solid var(--blue);
 }
 
 /* The dot on the line for each job */
@@ -332,15 +358,16 @@ ul {
   top: 26px;
   width: 20px;
   height: 20px;
-  background-color: var(--blue);
-  border: 3px solid var(--border);
+  background-color: var(--gold);
+  border: 3px solid var(--deep);
   border-radius: 50%;
 }
 
 .timeline-item .date {
   display: inline-block;
-  background-color: var(--light);
-  border: 2px solid var(--border);
+  background-color: var(--mint);
+  color: var(--deep);
+  border: 2px solid var(--mint);
   border-radius: 20px;
   padding: 0 14px;
   font-size: 0.85rem;
@@ -388,13 +415,13 @@ th, td {
 }
 
 th {
-  background-color: var(--text);
+  background-color: var(--deep);
   color: var(--white);
   font-family: 'Fraunces', serif;
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--light);
+  background-color: var(--sand);
 }
 
 tbody tr:hover {
@@ -418,6 +445,10 @@ tbody tr:hover {
   font-size: 0.95rem;
 }
 
+.chips li:nth-child(3n + 1) { background-color: var(--mint); }
+.chips li:nth-child(3n + 2) { background-color: var(--sand); }
+.chips li:nth-child(3n)     { background-color: var(--blush); }
+
 /* ---------- AWARD CARDS ---------- */
 .card-grid {
   display: grid;
@@ -432,6 +463,10 @@ tbody tr:hover {
   box-shadow: 6px 6px 0 var(--border);
   padding: 22px;
 }
+
+.card:nth-child(3n + 1) { border-top: 4px solid var(--blue); }
+.card:nth-child(3n + 2) { border-top: 4px solid var(--gold); }
+.card:nth-child(3n)     { border-top: 4px solid #d98a7c; }
 
 /* Alternate tilt: odd cards lean left, even lean right */
 .card:nth-child(odd)  { transform: rotate(-1.5deg); }
@@ -474,6 +509,13 @@ tbody tr:hover {
   padding: 22px;
 }
 
+.skill-box:nth-child(1) { background-color: var(--mint); }
+.skill-box:nth-child(2) { background-color: var(--sand); }
+
+.skill-box .chips li {
+  background-color: var(--white);
+}
+
 .skill-box h3 {
   margin-bottom: 14px;
 }
@@ -485,8 +527,9 @@ tbody tr:hover {
 
 /* ---------- CONTACT ---------- */
 .contact-box {
-  background-color: var(--light);
-  border: 3px solid var(--border);
+  color: var(--white);
+  background-color: var(--deep);
+  border: 0;
   border-radius: 24px;
   box-shadow: 8px 8px 0 var(--border);
   padding: 50px 30px;
@@ -494,7 +537,19 @@ tbody tr:hover {
 }
 
 .contact-box h2 {
+  color: var(--white);
   margin-bottom: 14px;
+}
+
+.contact-box h2 .highlight {
+  color: var(--gold);
+  background: none;
+}
+
+.contact-box .btn {
+  background-color: var(--gold);
+  color: var(--deep);
+  border-color: var(--deep);
 }
 
 .contact-box p {
@@ -502,13 +557,15 @@ tbody tr:hover {
 }
 
 .contact-box .handwritten {
+  color: var(--gold);
   margin-bottom: 4px;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-  background-color: var(--text);
-  color: var(--white);
+  background-color: var(--deep);
+  color: #a9d6cf;
+  border-top: 0;
   text-align: center;
   padding: 22px 20px;
   margin-top: 40px;
