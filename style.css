@@ -212,42 +212,6 @@ ul {
   margin-bottom: 22px;
 }
 
-/* ---------- Hero card: at a glance ---------- */
-.hero-card {
-  color: var(--white);
-  background-color: var(--deep);
-  border: none;
-  border-radius: 12px;
-  box-shadow: none;
-  transform: none;
-  padding: 26px 28px;
-  text-align: left;
-}
-
-.card-title {
-  color: var(--gold);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.hero-card dl div {
-  padding: 12px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.hero-card dt {
-  color: #a9d6cf;
-  font-size: 0.8rem;
-}
-
-.hero-card dd {
-  color: #ffffff;
-  font-weight: 500;
-}
-
 .avatar {
   width: 150px;
   height: 150px;
@@ -653,4 +617,63 @@ footer {
     display: block;
     overflow-x: auto;
   }
+}
+
+/* ---------- Hero card: postcard ---------- */
+.hero-card {
+  background-color: #fffdf8;
+  border: 2px solid var(--deep);
+  border-radius: 6px;
+  box-shadow: none;
+  transform: rotate(2deg);
+  padding: 24px 26px;
+  text-align: left;
+}
+
+.postcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.postcard-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--blue);
+}
+
+.stamp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 62px;
+  background-color: var(--sand);
+  border: 2px dashed var(--blue);
+  color: var(--deep);
+  font-size: 1.6rem;
+}
+
+.postcard-message {
+  font-family: 'Caveat', cursive;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  color: var(--deep);
+  margin-bottom: 10px;
+}
+
+.postcard-sign {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: var(--blue);
+  text-align: right;
+  margin-bottom: 18px;
+}
+
+.postcard-address p {
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0 2px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
