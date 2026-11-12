@@ -115,56 +115,78 @@ ul {
   font-weight: 600;
 }
 
-.logo-badge {
+.logo-mark {
   position: relative;
-  width: 56px;
-  height: 56px;
-  flex: 0 0 56px;
-  display: inline-flex;
+  width: 60px;
+  height: 70px;
+  flex: 0 0 60px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--gold);
-  color: var(--deep);
-  border: 3px solid var(--border);
-  font-family: 'Lora', serif;
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
-  transform: rotate(-7deg);
+  border: 2px dashed var(--deep);
+  transform: rotate(-4deg);
 }
 
-.logo-badge::after {
-  content: '';
+.logo-mark::before {
+  content: "";
   position: absolute;
-  top: -7px;
-  right: -7px;
-  width: 12px;
-  height: 12px;
-  background-color: var(--deep);
-  border-radius: 6px;
-  transform: rotate(-45deg);
+  inset: 4px;
+  border: 3px solid var(--white);
+  pointer-events: none;
 }
 
-.logo-copy {
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  bottom: -9px;
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.stamp-letters {
+  position: relative;
+  z-index: 1;
+  font-family: 'Lora', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--deep);
+}
+
+.stamp-year {
+  position: relative;
+  z-index: 1;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+
+.logo-text {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
-}
-
-.logo-name {
   color: var(--white);
-  font-size: 1.35rem;
   font-family: 'Lora', serif;
+  font-size: 1.35rem;
   font-weight: 600;
 }
 
-.logo-tagline,
 .logo-text small {
   margin-top: 3px;
   color: #a9d6cf;
-  font-family: 'Karla', sans-serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .nav-links {
