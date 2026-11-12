@@ -1,7 +1,6 @@
 /* =========================================================
    Resume website styles - Neha Pathanu
-   Theme: "Writer's desk", bold borders, offset shadows,
-          highlighter-pen accents on a paper background.
+   Theme: warm white paper, teal accents, and soft borders.
    Fonts: Fraunces (headings), DM Sans (body), Caveat (handwriting)
    ========================================================= */
 
@@ -9,13 +8,12 @@
    Defined once here, reused everywhere with var(--name).
    Change a colour here and the whole site updates. */
 :root {
-  --paper:     #fff8ec;   /* warm page background */
-  --ink:       #1f1a2e;   /* deep aubergine, used for text and borders */
-  --coral:     #f2542d;   /* main accent */
-  --highlight: #ffd84d;   /* highlighter yellow */
-  --mint:      #bfe8d6;
-  --lilac:     #d9ccff;
-  --blue:      #286b92;
+  --blue:   #0f766e;
+  --text:   #1f2937;
+  --muted:  #6b7280;
+  --light:  #e8f3f1;
+  --border: #d5e4e1;
+  --white:  #fffaf3;
 }
 
 /* ---------- ELEMENT SELECTORS: base styles ---------- */
@@ -31,12 +29,9 @@ html {
 
 body {
   font-family: 'DM Sans', sans-serif;
-  color: var(--ink);
+  color: var(--text);
   line-height: 1.7;
-  background-color: var(--paper);
-  /* subtle dotted-notebook pattern, drawn with CSS only */
-  background-image: radial-gradient(rgba(31, 26, 46, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-color: var(--white);
 }
 
 h1, h2, h3 {
@@ -57,7 +52,7 @@ ul {
 
 /* Highlighter-pen effect behind a word */
 .highlight {
-  background: linear-gradient(transparent 58%, var(--highlight) 58%);
+  background: linear-gradient(transparent 58%, var(--light) 58%);
   padding: 0 4px;
 }
 
@@ -65,7 +60,7 @@ ul {
 .handwritten {
   font-family: 'Caveat', cursive;
   font-size: 1.8rem;
-  color: var(--coral);
+  color: var(--blue);
   line-height: 1;
 }
 
@@ -74,17 +69,17 @@ ul {
   display: inline-block;
   padding: 12px 26px;
   margin: 6px 10px 6px 0;
-  background-color: var(--coral);
-  color: #fff;
+  background-color: var(--blue);
+  color: var(--white);
   font-weight: 700;
-  border: 3px solid var(--ink);
+  border: 3px solid var(--border);
   border-radius: 12px;
-  box-shadow: 4px 4px 0 var(--ink);
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .btn-light {
-  background-color: #fff;
-  color: var(--ink);
+  background-color: var(--white);
+  color: var(--text);
 }
 
 /* ---------- ID SELECTOR + POSITIONING: sticky nav bar ---------- */
@@ -92,8 +87,8 @@ ul {
   position: sticky;          /* sticks to the top while scrolling */
   top: 0;
   z-index: 100;              /* stays above everything else */
-  background-color: var(--paper);
-  border-bottom: 3px solid var(--ink);
+  background-color: var(--white);
+  border-bottom: 3px solid var(--border);
 }
 
 /* Flexbox: logo on the left, links on the right */
@@ -124,9 +119,9 @@ ul {
   align-items: center;
   justify-content: center;
   background-color: var(--blue);
-  color: var(--paper);
-  border: 3px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
+  color: var(--white);
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--border);
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
   letter-spacing: 0.04em;
@@ -140,7 +135,7 @@ ul {
   right: -7px;
   width: 12px;
   height: 12px;
-  background-color: var(--ink);
+  background-color: var(--text);
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
 }
@@ -159,7 +154,7 @@ ul {
 
 .logo-tagline {
   margin-top: 3px;
-  color: var(--coral);
+  color: var(--blue);
   font-family: 'Caveat', cursive;
   font-size: 1.15rem;
   font-weight: 600;
@@ -176,7 +171,7 @@ ul {
 }
 
 .nav-links a:hover {
-  background-color: var(--highlight);
+  background-color: var(--light);
 }
 
 /* ---------- HERO ---------- */
@@ -212,10 +207,10 @@ ul {
 
 /* Profile card on the right, slightly tilted */
 .hero-card {
-  background-color: var(--lilac);
-  border: 3px solid var(--ink);
+  background-color: var(--light);
+  border: 3px solid var(--border);
   border-radius: 24px;
-  box-shadow: 8px 8px 0 var(--ink);
+  box-shadow: 8px 8px 0 var(--border);
   padding: 30px 20px;
   text-align: center;
   transform: rotate(3deg);
@@ -226,9 +221,9 @@ ul {
   height: 150px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  background-color: var(--coral);
-  color: #fff;
-  border: 3px solid var(--ink);
+  background-color: var(--blue);
+  color: var(--white);
+  border: 3px solid var(--border);
   font-family: 'Fraunces', serif;
   font-size: 3.4rem;
   font-weight: 800;
@@ -239,8 +234,8 @@ ul {
 
 .badge {
   display: inline-block;               /* shrink-wraps the text */
-  background-color: var(--highlight);
-  border: 2px solid var(--ink);
+  background-color: var(--light);
+  border: 2px solid var(--border);
   border-radius: 30px;
   padding: 4px 16px;
   font-weight: 700;
@@ -279,9 +274,9 @@ ul {
 
 .stat {
   padding: 22px;
-  border: 3px solid var(--ink);
+  border: 3px solid var(--border);
   border-radius: 18px;
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 6px 6px 0 var(--border);
 }
 
 .stat-number {
@@ -297,10 +292,10 @@ ul {
   line-height: 1.4;
 }
 
-.stat-coral  { background-color: #ff9d85; }
-.stat-yellow { background-color: var(--highlight); }
-.stat-mint   { background-color: var(--mint); }
-.stat-lilac  { background-color: var(--lilac); }
+.stat-coral  { background-color: var(--light); }
+.stat-yellow { background-color: var(--light); }
+.stat-mint   { background-color: var(--light); }
+.stat-lilac  { background-color: var(--light); }
 
 /* ---------- TIMELINE (absolute positioning) ---------- */
 .timeline {
@@ -316,15 +311,15 @@ ul {
   top: 0;
   bottom: 0;
   width: 4px;
-  background-color: var(--ink);
+  background-color: var(--text);
 }
 
 .timeline-item {
   position: relative;
-  background-color: #fff;
-  border: 3px solid var(--ink);
+  background-color: var(--white);
+  border: 3px solid var(--border);
   border-radius: 16px;
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: 5px 5px 0 var(--border);
   padding: 20px 24px;
   margin-bottom: 28px;
 }
@@ -337,15 +332,15 @@ ul {
   top: 26px;
   width: 20px;
   height: 20px;
-  background-color: var(--coral);
-  border: 3px solid var(--ink);
+  background-color: var(--blue);
+  border: 3px solid var(--border);
   border-radius: 50%;
 }
 
 .timeline-item .date {
   display: inline-block;
-  background-color: var(--highlight);
-  border: 2px solid var(--ink);
+  background-color: var(--light);
+  border: 2px solid var(--border);
   border-radius: 20px;
   padding: 0 14px;
   font-size: 0.85rem;
@@ -358,7 +353,7 @@ ul {
 }
 
 .company {
-  color: var(--coral);
+  color: var(--blue);
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -374,36 +369,36 @@ ul {
   content: "\2726";                    /* star symbol */
   position: absolute;
   left: 0;
-  color: var(--coral);
+  color: var(--blue);
 }
 
 /* ---------- EDUCATION TABLE ---------- */
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  border: 3px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--ink);
+  background-color: var(--white);
+  border: 3px solid var(--border);
+  box-shadow: 6px 6px 0 var(--border);
 }
 
 th, td {
   padding: 14px 18px;
   text-align: left;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 2px solid var(--border);
 }
 
 th {
-  background-color: var(--ink);
-  color: var(--paper);
+  background-color: var(--text);
+  color: var(--white);
   font-family: 'Fraunces', serif;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #fff3d6;
+  background-color: var(--light);
 }
 
 tbody tr:hover {
-  background-color: var(--mint);
+  background-color: var(--light);
 }
 
 /* ---------- CHIPS (inline-block pills) ---------- */
@@ -415,8 +410,8 @@ tbody tr:hover {
 
 .chips li {
   display: inline-block;
-  background-color: #fff;
-  border: 2px solid var(--ink);
+  background-color: var(--white);
+  border: 2px solid var(--border);
   border-radius: 30px;
   padding: 6px 16px;
   font-weight: 500;
@@ -431,10 +426,10 @@ tbody tr:hover {
 }
 
 .card {
-  background-color: #fff;
-  border: 3px solid var(--ink);
+  background-color: var(--white);
+  border: 3px solid var(--border);
   border-radius: 18px;
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 6px 6px 0 var(--border);
   padding: 22px;
 }
 
@@ -449,19 +444,19 @@ tbody tr:hover {
 
 .card .year {
   display: inline-block;
-  background-color: var(--coral);
-  color: #fff;
+  background-color: var(--blue);
+  color: var(--white);
   font-weight: 700;
   font-size: 0.8rem;
   padding: 0 12px;
   border-radius: 20px;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--border);
 }
 
 .card .small {
   font-size: 0.85rem;
   margin-top: 8px;
-  opacity: 0.8;
+  color: var(--muted);
 }
 
 /* ---------- SKILLS: two columns ---------- */
@@ -472,10 +467,10 @@ tbody tr:hover {
 }
 
 .skill-box {
-  background-color: var(--mint);
-  border: 3px solid var(--ink);
+  background-color: var(--light);
+  border: 3px solid var(--border);
   border-radius: 18px;
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 6px 6px 0 var(--border);
   padding: 22px;
 }
 
@@ -490,10 +485,10 @@ tbody tr:hover {
 
 /* ---------- CONTACT ---------- */
 .contact-box {
-  background-color: var(--highlight);
-  border: 3px solid var(--ink);
+  background-color: var(--light);
+  border: 3px solid var(--border);
   border-radius: 24px;
-  box-shadow: 8px 8px 0 var(--ink);
+  box-shadow: 8px 8px 0 var(--border);
   padding: 50px 30px;
   text-align: center;
 }
@@ -512,8 +507,8 @@ tbody tr:hover {
 
 /* ---------- FOOTER ---------- */
 footer {
-  background-color: var(--ink);
-  color: var(--paper);
+  background-color: var(--text);
+  color: var(--white);
   text-align: center;
   padding: 22px 20px;
   margin-top: 40px;
