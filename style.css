@@ -57,7 +57,7 @@ ul {
 
 /* Highlighter-pen effect behind a word */
 .highlight {
-  color: var(--blue);
+  color: inherit;
 }
 
 /* Handwritten accent text */
