@@ -675,5 +675,6 @@ footer {
   border-bottom: 1px solid var(--border);
   padding: 6px 0 2px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
