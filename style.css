@@ -596,7 +596,7 @@ footer {
   background-color: #fffdf8;
   border: 2px solid var(--deep);
   border-radius: 6px;
-  transform: none;
+  transform: rotate(2deg);
   padding: 24px 26px;
   text-align: left;
 }
