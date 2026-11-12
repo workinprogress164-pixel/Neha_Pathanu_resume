@@ -137,55 +137,20 @@ ul {
   pointer-events: none;
 }
 
-.logo-mark::after {
-  content: "";
-  position: absolute;
-  right: -14px;
-  bottom: -9px;
-  width: 36px;
-  height: 36px;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  background: transparent;
-  pointer-events: none;
-  z-index: 2;
-}
-
 .stamp-letters {
   position: relative;
   z-index: 1;
   font-family: 'Lora', serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
   color: var(--deep);
 }
 
-.stamp-year {
-  position: relative;
-  z-index: 1;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.5rem;
-  text-transform: uppercase;
-  color: var(--deep);
-}
-
 .logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  color: var(--white);
-  font-family: 'Lora', serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-}
-
-.logo-text small {
-  margin-top: 3px;
   color: #a9d6cf;
   font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  font-style: normal;
+  font-size: 0.95rem;
   font-weight: 400;
 }
 
