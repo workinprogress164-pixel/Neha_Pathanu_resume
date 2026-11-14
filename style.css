@@ -124,8 +124,10 @@ ul {
 }
 
 .nav-links a {
-  color: #d6ece8;
-  font-weight: 500;
+  color: #a9d6cf;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 400;
   padding: 2px 4px;
 }
 
