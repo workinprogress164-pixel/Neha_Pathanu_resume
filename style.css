@@ -104,12 +104,10 @@ ul {
 }
 
 .logo-seal {
-  width: 66px;
-  height: 66px;
-  flex: 0 0 66px;
-  overflow: visible;
-  filter: drop-shadow(0 3px 3px rgba(0,0,0,0.28));
-  transform: rotate(-3deg);
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 0;
 }
 
 .logo-text {
@@ -549,12 +547,6 @@ footer {
 
   .section h2 {
     font-size: 1.9rem;
-  }
-
-  .logo-seal {
-    width: 54px;
-    height: 54px;
-    flex-basis: 54px;
   }
 
   table {
