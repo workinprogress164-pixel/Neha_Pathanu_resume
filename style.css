@@ -357,7 +357,7 @@ th {
   font-family: 'Lora', serif;
 }
 
-tbody tr:nth-child(even) {
+tbody tr {
   background-color: var(--sand);
 }
 
